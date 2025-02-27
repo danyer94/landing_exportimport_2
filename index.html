@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalLift - Comercio Sin Fronteras</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">GlobalLift</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#sobre-nosotros">Historia</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <div class="language-container">
+                    🌐
+                    <select id="language-selector" onchange="changeLanguage()">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Comercio <span>Sin Fronteras</span></h1>
+            <p>Impulsa tu negocio al mundo con soluciones globales de importación y exportación.</p>
+            <a href="#contacto" class="btn-hero">Explora el Futuro</a>
+        </div>
+        <div class="globe">
+            <img src="images/globe.png" alt="Globo terráqueo" class="globe-image">
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services">
+        <h2>Nuestros Pilares</h2>
+        <div class="service-grid">
+            <div class="service-card" data-service="import">
+                <h3>Importación</h3>
+                <p>Productos del mundo a tu puerta con velocidad y precisión.</p>
+            </div>
+            <div class="service-card" data-service="export">
+                <h3>Exportación</h3>
+                <p>Tu marca conquistando mercados internacionales.</p>
+            </div>
+            <div class="service-card" data-service="logistics">
+                <h3>Logística</h3>
+                <p>Flujo perfecto desde el origen hasta el destino.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="sobre-nosotros" class="about">
+        <h2>Nuestra Historia</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-year="2013">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="year">2013</span>
+                    <h3>El Comienzo</h3>
+                    <p>Nacimos con una visión global en Barcelona, España. Un equipo de 5 personas y un sueño: revolucionar el comercio internacional.</p>
+                    <div class="timeline-stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">empleados</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item" data-year="2018">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="year">2018</span>
+                    <h3>Expansión Global</h3>
+                    <p>Alcanzamos presencia en 20 países, estableciendo centros logísticos clave en Europa, Asia y América. Más de 1000 clientes confían en nosotros.</p>
+                    <div class="timeline-stat">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">clientes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item" data-year="2025">
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="timeline-content">
+                    <span class="year">2025</span>
+                    <h3>Innovación Continua</h3>
+                    <p>Lideramos la transformación digital del comercio internacional con IA y blockchain. Facilitando más de 50,000 operaciones anuales.</p>
+                    <div class="timeline-stat">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">operaciones/año</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <h2>Conecta con Nosotros</h2>
+        <form id="contact-form" class="contact-form">
+            <input type="text" placeholder="Tu Nombre" required>
+            <input type="email" placeholder="Tu Email" required>
+            <textarea placeholder="¿Cómo te ayudamos?" required></textarea>
+            <button type="submit" class="btn-submit">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>GlobalLift © 2025 | info@globallift.com | +1 234 567 890</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
