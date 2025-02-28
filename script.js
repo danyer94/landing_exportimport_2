@@ -256,28 +256,94 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Menú móvil
-    const nav = document.querySelector('.nav');
-    const hamburger = document.createElement('div');
-    hamburger.classList.add('hamburger');
-    hamburger.innerHTML = '☰';
-    
-    if (window.innerWidth <= 768) {
-        document.querySelector('.header').insertBefore(hamburger, nav);
+    // Crear menú móvil más sofisticado
+    const createMobileMenu = () => {
+        // Contenedor principal del menú móvil
+        const mobileMenuOverlay = document.createElement('div');
+        mobileMenuOverlay.classList.add('mobile-menu-overlay');
+        
+        // Contenedor del menú
+        const mobileMenu = document.createElement('div');
+        mobileMenu.classList.add('mobile-menu');
+        
+        // Botón de cierre
+        const closeButton = document.createElement('button');
+        closeButton.classList.add('mobile-menu-close');
+        closeButton.innerHTML = '&times;';
+        
+        // Clonar el menú de navegación original
+        const navItems = document.querySelector('.nav ul').cloneNode(true);
+        
+        // Añadir clase especial a los elementos del menú móvil
+        navItems.querySelectorAll('li').forEach(item => {
+            item.classList.add('mobile-menu-item');
+        });
+        
+        // Añadir logo en el menú móvil
+        const mobileLogo = document.createElement('div');
+        mobileLogo.classList.add('mobile-menu-logo');
+        mobileLogo.textContent = 'GlobalLift';
+        
+        // Estructura del menú
+        mobileMenu.appendChild(closeButton);
+        mobileMenu.appendChild(mobileLogo);
+        mobileMenu.appendChild(navItems);
+        mobileMenuOverlay.appendChild(mobileMenu);
+        
+        // Añadir al body
+        document.body.appendChild(mobileMenuOverlay);
+        
+        // Eventos de apertura y cierre
+        const hamburger = document.createElement('div');
+        hamburger.classList.add('hamburger');
+        hamburger.innerHTML = '☰';
+        document.querySelector('.header').insertBefore(hamburger, document.querySelector('.nav'));
         
         hamburger.addEventListener('click', () => {
-            nav.classList.toggle('mobile-menu-open');
-            hamburger.classList.toggle('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
-
+        
+        closeButton.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
         // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.nav a').forEach(link => {
+        navItems.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                nav.classList.remove('mobile-menu-open');
-                hamburger.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
             });
         });
+        
+        // Añadir selector de idioma al menú móvil
+        const languageContainer = document.querySelector('.language-container').cloneNode(true);
+        languageContainer.classList.add('mobile-language-selector');
+        mobileMenu.appendChild(languageContainer);
+        
+        // Copiar funcionalidad de cambio de idioma
+        const mobileLanguageSelector = mobileMenu.querySelector('#language-selector');
+        mobileLanguageSelector.addEventListener('change', () => {
+            document.getElementById('language-selector').value = mobileLanguageSelector.value;
+            changeLanguage();
+        });
+    };
+    
+    // Crear menú móvil solo en pantallas pequeñas
+    if (window.innerWidth <= 768) {
+        createMobileMenu();
     }
+    
+    // Recrear menú móvil si se redimensiona la ventana
+    window.addEventListener('resize', () => {
+        const existingMobileMenu = document.querySelector('.mobile-menu-overlay');
+        if (window.innerWidth <= 768 && !existingMobileMenu) {
+            createMobileMenu();
+        } else if (window.innerWidth > 768 && existingMobileMenu) {
+            existingMobileMenu.remove();
+        }
+    });
 
     // Ajustar eventos táctiles para mejor experiencia móvil
     document.querySelectorAll('.service-card, .timeline-item').forEach(item => {
