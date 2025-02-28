@@ -255,6 +255,39 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.add('animate-in');
         }
     });
+
+    // Menú móvil
+    const nav = document.querySelector('.nav');
+    const hamburger = document.createElement('div');
+    hamburger.classList.add('hamburger');
+    hamburger.innerHTML = '☰';
+    
+    if (window.innerWidth <= 768) {
+        document.querySelector('.header').insertBefore(hamburger, nav);
+        
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('mobile-menu-open');
+            hamburger.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('mobile-menu-open');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
+
+    // Ajustar eventos táctiles para mejor experiencia móvil
+    document.querySelectorAll('.service-card, .timeline-item').forEach(item => {
+        item.addEventListener('touchstart', function() {
+            this.classList.add('touch-active');
+        });
+        item.addEventListener('touchend', function() {
+            this.classList.remove('touch-active');
+        });
+    });
 });
 
 // Animación para los elementos del timeline
