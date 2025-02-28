@@ -17,7 +17,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     setTimeout(() => {
         alert('¡Mensaje enviado con éxito! Te contactaremos pronto.');
         this.reset();
-        btn.textContent = 'Lanzar Mensaje';
+        btn.textContent = 'Enviar Mensaje';
         btn.disabled = false;
     }, 1000);
 });
