@@ -512,3 +512,186 @@ body::after {
     transition: all 0.3s ease;
 }
 
+/* Añadir media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Ajustes generales */
+    body {
+        font-size: 14px;
+    }
+
+    /* Header */
+    .header {
+        padding: 10px 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin: 15px 0;
+        padding: 10px;
+    }
+
+    .globe {
+        width: 300px;
+        height: 300px;
+        opacity: 0.3;
+    }
+
+    /* Servicios */
+    .services {
+        padding: 50px 15px;
+        margin: 10px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 25px;
+    }
+
+    /* Sobre Nosotros / Timeline */
+    .about {
+        padding: 50px 15px;
+        margin: 10px;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .timeline-icon {
+        left: 20px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 40px);
+        margin-left: 40px !important;
+        transform: translateX(0) !important;
+    }
+
+    .timeline-content h3 {
+        font-size: 20px;
+    }
+
+    /* Contacto */
+    .contact {
+        padding: 50px 15px;
+        margin: 10px;
+    }
+
+    .contact h2 {
+        font-size: 36px;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 20px 15px;
+        font-size: 12px;
+    }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .service-card h3 {
+        font-size: 22px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+}
+
+/* Estilos para menú móvil */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2000;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .nav.mobile-menu-open {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        z-index: 1500;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav.mobile-menu-open ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+/* Estilos para interacción táctil */
+.service-card.touch-active,
+.timeline-item.touch-active {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
